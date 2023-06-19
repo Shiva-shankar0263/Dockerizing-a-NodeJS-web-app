@@ -20,7 +20,7 @@ pipeline {
     stage('Deploy docker'){
       steps {
 		     sh '''
-                         ssh -i /var/lib/jenkins/.ssh/application.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-221-186-114.ap-southeast-1.compute.amazonaws.com 'bash-s'< ./deploy.sh
+                         ssh -i /var/lib/jenkins/.ssh/application.pem -o StrictHostKeyChecking=no ubuntu@ec2-52-221-186-114.ap-southeast-1.compute.amazonaws.com 'bash -s'< ./deploy.sh \$(BUILD_NUMBER)
             	        '''
       		}
 		}		    
